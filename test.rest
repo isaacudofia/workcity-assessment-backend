@@ -1,0 +1,77 @@
+# Test Endpoints for Workcity Assessment Backend
+
+# Auth
+POST http://localhost:5000/api/auth/signup
+Content-Type: application/json
+{
+  "name": "Admin User",
+  "email": "admin1@example.com",
+  "password": "password123",
+  "role": "admin"
+}
+###
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+{
+  "email": "admin1@example.com",
+  "password": "password123"
+}
+
+###
+# Clients (replace <TOKEN> with your JWT)
+POST http://localhost:5000/api/clients
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+{
+  "name": "Client One",
+  "email": "client1@example.com",
+  "phone": "1234567890",
+  "address": "123 Main St"
+}
+###
+GET http://localhost:5000/api/clients
+Authorization: Bearer <TOKEN>
+###
+GET http://localhost:5000/api/clients/{{clientId}}
+Authorization: Bearer <TOKEN>
+###
+PUT http://localhost:5000/api/clients/{{clientId}}
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+{
+  "name": "Client One Updated"
+}
+###
+DELETE http://localhost:5000/api/clients/{{clientId}}
+Authorization: Bearer <TOKEN>
+
+###
+# Projects
+POST http://localhost:5000/api/projects
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+{
+  "title": "Project Alpha",
+  "description": "First project",
+  "client": "{{clientId}}"
+}
+###
+GET http://localhost:5000/api/projects
+Authorization: Bearer <TOKEN>
+###
+GET http://localhost:5000/api/projects/{{projectId}}
+Authorization: Bearer <TOKEN>
+###
+PUT http://localhost:5000/api/projects/{{projectId}}
+Authorization: Bearer <TOKEN>
+Content-Type: application/json
+{
+  "title": "Project Alpha Updated",
+  "status": "active"
+}
+###
+DELETE http://localhost:5000/api/projects/{{projectId}}
+Authorization: Bearer <TOKEN>
+###
+GET http://localhost:5000/api/clients/{{clientId}}/projects
+Authorization: Bearer <TOKEN>
