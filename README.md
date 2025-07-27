@@ -23,7 +23,7 @@ This is the backend API for the Workcity Full-Stack & WordPress Developer Assess
 
 1. Clone the repository:
    ```sh
-   git clone
+   git clone https://github.com/isaacudofia/workcity-assessment-backend.git
    cd workcity-assessment-backend
    ```
 2. Install dependencies:
